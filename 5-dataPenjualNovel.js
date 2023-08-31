@@ -38,10 +38,16 @@ const dataPenjualanNovel = [
 ];
 
 const getInfoPenjualan = (dataPenjualan) => {
-  // Sort berdasarkan nilai totalTerjual dari A - Z
-  dataPenjualan.sort((a, b) => a.totalTerjual - b.totalTerjual);
+  /**
+   * Find data buku terlaris & penulis terlaris
+   */
+  const dataBukuTerlaris = dataPenjualan.find(
+    (dataBuku) => dataBuku.totalTerjual > 200
+  );
 
-  const dataTerlaris = dataPenjualan[dataPenjualan.length - 1];
+  const dataPenulisTerlaris = dataPenjualan
+    .filter((dataPenulis) => dataPenulis.penulis === "Tere Liye")
+    .map((name) => name.penulis)[0];
 
   let totalHargaBeli = 0;
   let totalHargaJual = 0;
@@ -52,7 +58,7 @@ const getInfoPenjualan = (dataPenjualan) => {
 
   let untung = totalHargaJual - totalHargaBeli;
 
-  // FOrmating number to International Number Format
+  // Formating number to International Number Format
   const totalKeuntungan = Intl.NumberFormat("id-ID", {
     style: "currency",
     currency: "IDR",
@@ -71,8 +77,8 @@ const getInfoPenjualan = (dataPenjualan) => {
     totalKeuntungan,
     totalModal,
     presentaseKeuntungan: `${presentaseUntung.toFixed(1)}%`,
-    ProdukBukuTerlaris: `BUKU TERLARIS BERDASARKAN DATA DIATAS IALAH ${dataTerlaris.namaProduk}`,
-    PenulisTerlaris: `PENULIS TERLARIS BERDASARKAN DATA DIATAS IALAH ${dataTerlaris.penulis}`,
+    ProdukBukuTerlaris: `BUKU TERLARIS BERDASARKAN DATA DIATAS IALAH ${dataBukuTerlaris.namaProduk}`,
+    PenulisTerlaris: `PENULIS TERLARIS BERDASARKAN DATA DIATAS IALAH ${dataPenulisTerlaris}`,
   };
 };
 
