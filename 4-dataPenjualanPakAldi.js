@@ -26,6 +26,7 @@ const dataPenjualanPakAldi = [
 ];
 
 const hitungTotalPenjualan = (dataPenjualan) => {
+  // make variable total to calculate array data.totalTerjual with looping for of
   let total = 0;
   for (const data of dataPenjualan) {
     total += data.totalTerjual;

@@ -1,4 +1,5 @@
 const changeWord = (selectedText, changedText, text) => {
+  // fn to replace text with selectedtext and changedtext tolowercase
   const replaceText = () => {
     const result = text.replace(
       selectedText.toLocaleLowerCase(),
@@ -8,6 +9,7 @@ const changeWord = (selectedText, changedText, text) => {
     console.log(result);
   };
 
+  // checking selected text includes in sentences or not
   if (!text.includes(selectedText.toLocaleLowerCase())) {
     console.log("Text tidak ditemukan!!");
   } else {

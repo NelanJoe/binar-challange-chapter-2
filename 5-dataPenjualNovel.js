@@ -52,6 +52,7 @@ const getInfoPenjualan = (dataPenjualan) => {
 
   let untung = totalHargaJual - totalHargaBeli;
 
+  // FOrmating number to International Number Format
   const totalKeuntungan = Intl.NumberFormat("id-ID", {
     style: "currency",
     currency: "IDR",

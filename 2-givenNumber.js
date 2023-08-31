@@ -1,4 +1,5 @@
 const checkTypeNumber = (givenNumber) => {
+  // checking typeof params givenNumber is number or not
   const result =
     typeof givenNumber === "number" ? givenNumber : "Error: Invalid data type";
 
