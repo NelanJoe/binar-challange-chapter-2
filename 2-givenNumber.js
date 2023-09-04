@@ -1,4 +1,5 @@
 const checkTypeNumber = (givenNumber) => {
+  // checking data types of params givenNumber is data type number or not
   if (typeof givenNumber !== "number") {
     console.log("Error: Invalid data type");
   } else {
